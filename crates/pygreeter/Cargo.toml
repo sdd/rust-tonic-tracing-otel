@@ -1,0 +1,23 @@
+[package]
+name = "pygreeter"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "pygreeter"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = { version = "0.20", features = ["extension-module"] }
+tracing = "0.1"
+pyo3-asyncio = { version = "0.20", features = ["attributes", "tokio-runtime"] }
+opentelemetry_sdk = { workspace = true }
+tracing-opentelemetry = { workspace = true }
+
+opentelemetry = { workspace = true }
+init-tracing-opentelemetry = { workspace = true }
+greeter-client = { path="../greeter-client" }
+async-once-cell = "0.5.4"

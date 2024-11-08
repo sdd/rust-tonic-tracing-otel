@@ -1,0 +1,20 @@
+[package]
+name = "greeter-server"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+init-tracing-opentelemetry = { workspace = true, features = ["tracing_subscriber_ext", "tracer", "opentelemetry-otlp", "tonic"] }
+opentelemetry = { workspace = true }
+tonic-tracing-opentelemetry = { workspace = true }
+tracing = { workspace = true }
+tracing-opentelemetry-instrumentation-sdk = { workspace = true }
+
+tokio = { workspace = true, features = ["full"] }
+tonic = { workspace = true }
+tonic-health = { workspace = true}
+tonic-reflection = { workspace = true }
+
+greeter-core = { path = "../greeter-core" }

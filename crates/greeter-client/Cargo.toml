@@ -1,0 +1,27 @@
+[package]
+name = "greeter-client"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+greeter-core = { path = "../greeter-core" }
+
+init-tracing-opentelemetry = { workspace = true, features = ["tracing_subscriber_ext", "tracer", "opentelemetry-otlp", "tonic"] }
+opentelemetry = { workspace = true }
+tonic-tracing-opentelemetry = { workspace = true }
+
+tokio = { workspace = true, features = ["full"] }
+tonic = { workspace = true }
+tower = { workspace = true }
+anyhow = "1"
+tracing = "0.1"
+
+[lib]
+name = "greeter_client"
+path = "src/lib.rs"
+
+[[bin]]
+name = "greeter_cli"
+path = "src/main.rs"

@@ -1,0 +1,14 @@
+[package]
+name = "greeter-core"
+publish = false
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+prost = "0.13"
+tonic = { workspace = true }
+
+[build-dependencies]
+tonic-build = { workspace = true }
